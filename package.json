@@ -1,0 +1,12 @@
+{
+  "name": "gitflow-simulation",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A hands-on Gitflow simulation with a pre-commit hook.",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

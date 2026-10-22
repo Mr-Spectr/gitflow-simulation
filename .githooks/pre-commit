@@ -1,0 +1,15 @@
+#!/usr/bin/env sh
+set -eu
+
+if git diff --cached --name-only | grep -Eq '(^|/)src/'; then
+  if ! git diff --cached --name-only | grep -qx 'CHANGELOG.md'; then
+    echo "Commit rejected: source changes must include an update to CHANGELOG.md." >&2
+    exit 1
+  fi
+fi
+
+if command -v npm >/dev/null 2>&1; then
+  npm test
+else
+  echo "npm was not found; skipping the test check." >&2
+fi
